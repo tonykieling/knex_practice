@@ -1,18 +1,16 @@
-# psql -U <poweruser>
+USING KNEX
+1) Dependencies: knex and dotenv
+
+2) db boilerplate:
+# psql -U <some_poweruser>
 # CREATE ROLE test_db WITH LOGIN PASSWORD 'test_db';
 # ALTER ROLE test_db CREATEDB;
 # \q
 # psql -d postgres -U test_db;
 // after created the db, it will be possible to login as `psql -d test_db -U test_db;`
 # CREATE DATABASE test_db;
-# CREATE TABLE famous_people (
-  id BIGSERIAL PRIMARY KEY,
-  first_name VARCHAR(50),
-  last_name VARCHAR(50),
-  birthdate DATE
-);
 
-- .env:
+3) .env file
 DB_HOST=localhost
 DB_USER=test_db
 DB_PASS=test_db
@@ -21,9 +19,10 @@ DB_DATABASE=test_db
 DB_PORT=5432
 DB_SSL=true
 
+4) 
 // https://alexzywiak.github.io/running-migrations-with-knex/
 # knex init   // it will generate knexfile.js, which contains the db settings for knex
-# knex migrate:make create_milestones // it creates the knex migration strucutre file in order to initialize the file and we write the necessary commands to perfmore the creation (up), drop (down) and change table
+# knex migrate:make create_first_table // it creates the knex migration strucutre file in order to initialize the file and we write the necessary commands to perfmore the creation (up), drop (down) and change table
 
 # knex migrate:latest   // it runs the latest change (up)
 # knex migrate:rollback   // runs down
@@ -31,3 +30,8 @@ DB_SSL=true
 # knex seed:make seed_first_users   /it will create a file with the strucutre to populate the db
 # knex seed:run   // To run seed files, execute:
 
+references:
+* check week 4(midterm) to see more examples
+- http://zetcode.com/javascript/knex/
+- https://alexzywiak.github.io/running-migrations-with-knex/
+- https://knexjs.org/#Installation
