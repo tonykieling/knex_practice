@@ -27,3 +27,7 @@ DB_SSL=true
 
 # knex migrate:latest   // it runs the latest change (up)
 # knex migrate:rollback   // runs down
+
+# knex seed:make seed_first_users   /it will create a file with the strucutre to populate the db
+# knex seed:run   // To run seed files, execute:
+

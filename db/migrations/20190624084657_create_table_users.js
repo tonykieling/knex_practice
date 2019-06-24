@@ -2,6 +2,7 @@
 exports.up = function(knex, Promise) {
   return Promise.all([
     knex.schema.createTable('users', table => {
+      table.increments('id');
       table.string('username', 60);
       table.string('password', 70);
       table.string('email', 80);
