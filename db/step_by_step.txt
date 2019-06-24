@@ -1,0 +1,23 @@
+# psql -U <poweruser>
+# CREATE ROLE test_db WITH LOGIN PASSWORD 'test_db';
+# ALTER ROLE test_db CREATEDB;
+# \q
+# psql -d postgres -U test_db;
+// after created the db, it will be possible to login as `psql -d test_db -U test_db;`
+# CREATE DATABASE test_db;
+# CREATE TABLE famous_people (
+  id BIGSERIAL PRIMARY KEY,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
+  birthdate DATE
+);
+
+- .env:
+DB_HOST=localhost
+DB_USER=test_db
+DB_PASS=test_db
+DB_NAME=test_db
+DB_DATABASE=test_db
+DB_PORT=5432
+DB_SSL=true
+
