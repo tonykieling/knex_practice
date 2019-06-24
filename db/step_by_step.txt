@@ -21,4 +21,9 @@ DB_DATABASE=test_db
 DB_PORT=5432
 DB_SSL=true
 
-# knex init
+// https://alexzywiak.github.io/running-migrations-with-knex/
+# knex init   // it will generate knexfile.js, which contains the db settings for knex
+# knex migrate:make create_milestones // it creates the knex migration strucutre file in order to initialize the file and we write the necessary commands to perfmore the creation (up), drop (down) and change table
+
+# knex migrate:latest   // it runs the latest change (up)
+# knex migrate:rollback   // runs down

@@ -12,7 +12,8 @@ const options = {
 const knex = require('knex')(options);
 
 knex.raw("SELECT * FROM famous_people")
-  .then((version) => console.log((version[0][0])))
+  // .then((version) => console.log((version[0][0])))
+  .then(result => console.log(result.rows))
   .catch((err) => { console.log( err); throw err })
   .finally(() => {
       knex.destroy();
